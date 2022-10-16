@@ -5,6 +5,9 @@
     padding: 20px;
     background-color:rgb(237, 237, 237)
 }
+.movieList:hover {
+    background-color:rgb(217, 214, 214)
+}
 .sideBar {
     width: 30%;
 }

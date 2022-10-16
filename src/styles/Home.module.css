@@ -1,18 +1,23 @@
 .sideBar{
-	width:50%;
-	margin-right:50px
+	width:500px;
+	margin-right:50px;
+  overflow: hidden;
+  max-height: 90vh;
 }
 .contentContainer{
-	background-color: aliceblue;
+	background-color: rgb(237, 237, 237);
 	display: flex;
 	justify-content:space-between;
 	
 }
-
 .header{
 	display: flex;
-	height: 100px;
+	height: 10vh;
 	color: #ffffff;
 	background-color: rgb(158, 155, 155);
 	margin: 0;
+}
+
+.mainContent{
+	width: 1500px;
 }
