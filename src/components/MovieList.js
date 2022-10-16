@@ -11,10 +11,17 @@ const MovieList = (props) => {
         <div
           className={styles.movieList}
           onClick={() => props.setSelectedMovie(movie.imdbID)}>
-          <box>
-            <img src={movie.Poster} width={100} height={100} alt='movie'></img>
+          {/*eslint-disable-next-line @next/next/no-img-element*/}
+          <img
+            className={styles.cardPoster}
+            src={movie.Poster}
+            width={80}
+            height={80}
+            alt='movie'></img>
+          <box style={styles.cardTitle}>
             <span>{movie.Title}</span>
-            <span>{movie.Year}</span>
+            <br />
+            <span style={{ color: 'gray' }}>{movie.Year}</span>
             {/* <div
 						onClick={() => props.handleFavouritesClick(movie)}
 						className='overlay d-flex align-items-center justify-content-center'

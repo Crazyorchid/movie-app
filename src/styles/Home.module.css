@@ -1,30 +1,30 @@
-.movieApp > .row {
-	overflow-x: auto;
-	flex-wrap: nowrap;
+.sideBar {
+  width: 700px;
+  margin-right: 50px;
+  overflow: hidden;
+  max-height: 90vh;
 }
 
-.image-container {
-	position: relative;
-	transition: transform 0.2s;
+.sideBarScroll::-webkit-scrollbar {
+  width: 1em;
 }
 
-.image-container:hover {
-	cursor: pointer;
-	transform: scale(1.1);
+.sideBarScroll::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+.contentContainer {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+  display: flex;
+  height: 10vh;
+  color: #ffffff;
+  background-color: rgb(122, 121, 121);
+  margin: 0;
 }
 
-.image-container:hover .overlay {
-	opacity: 1;
-}
-
-.overlay {
-	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	width: 100%;
-	transition: 0.5s ease;
-	opacity: 0;
-	bottom: 0;
-	font-size: 20px;
-	padding: 20px;
-	text-align: center;
+.mainContent {
+  width: 1500px;
 }
