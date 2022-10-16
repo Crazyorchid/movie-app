@@ -1,0 +1,21 @@
+.movieList {
+    border: solid 1px rgb(202, 199, 199);
+    border-left: none;
+    border-top: none;
+    padding: 20px;
+    background-color:rgb(237, 237, 237)
+}
+.movieList:hover {
+    background-color:rgb(217, 214, 214)
+}
+.sideBar {
+    width: 30%;
+}
+.scrollBar {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scrollbar::-webkit-scrollbar {
+    display: none;
+  }
