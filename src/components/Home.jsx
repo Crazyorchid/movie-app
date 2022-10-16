@@ -16,7 +16,7 @@ const Home = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const getMovieRequest = async (searchValue) => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&page=${page}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
+    const url = `https://www.omdbapi.com/?s=${searchValue}&page=${page}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
     const response = await fetch(url);
     const responseJson = await response.json();
 
