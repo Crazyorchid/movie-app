@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SideBarContent from '../components/SideBarContent';
+import Home from '../components/Home';
 
 const App = () => {
   return (
     <>
-      <SideBarContent />
+      <Home />
     </>
   );
 };

@@ -5,10 +5,9 @@ import MovieList from './MovieList';
 import MovieListHeading from './MovieHeading';
 import SearchBox from './SearchBox';
 import AddtoWatchlist from './AddtoWatchlist';
-import RemoveFromWatchlist from './RemoveFromWatchlist';
 import MovieContent from './MovieContent';
 
-const SideMenu = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [result, setResult] = useState([]);
   const [favourites, setFavourites] = useState([]);
@@ -96,4 +95,4 @@ const SideMenu = () => {
   );
 };
 
-export default SideMenu;
+export default Home;
