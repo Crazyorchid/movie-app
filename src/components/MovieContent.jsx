@@ -7,7 +7,7 @@ const MovieContent = (props) => {
   const [loading, setLoading] = useState(false);
   const selectMovie = async (movieId) => {
     setLoading(true);
-    const url = `http://www.omdbapi.com/?i=${movieId}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
+    const url = `https://www.omdbapi.com/?i=${movieId}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
     const response = await fetch(url);
     const responseJson = await response.json();
     setLoading(false);
