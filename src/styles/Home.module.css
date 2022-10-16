@@ -1,0 +1,18 @@
+.sideBar{
+	width:50%;
+	margin-right:50px
+}
+.contentContainer{
+	background-color: aliceblue;
+	display: flex;
+	justify-content:space-between;
+	
+}
+
+.header{
+	display: flex;
+	height: 100px;
+	color: #ffffff;
+	background-color: rgb(158, 155, 155);
+	margin: 0;
+}

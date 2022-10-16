@@ -1,9 +1,20 @@
 html,
 body {
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream:styles/globals.css
+>>>>>>> Stashed changes
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+<<<<<<< Updated upstream
+=======
+=======
+	background: #ececec;
+	color: #ffffff;
+>>>>>>> Stashed changes:src/styles/globals.css
+>>>>>>> Stashed changes
 }
 
 a {
@@ -20,7 +31,12 @@ a {
     color-scheme: dark;
   }
   body {
+<<<<<<< Updated upstream
     color: white;
     background: black;
+=======
+    color: rgb(255, 255, 255);
+    background: #ffffff;
+>>>>>>> Stashed changes
   }
 }

@@ -1,0 +1,25 @@
+.searchBanner {
+  background-color: #939090;
+  height: 100px;
+  font-size: 3rem;
+  color: white;
+  padding: auto;
+}
+
+.searchBanner .searchBar {
+  width: 40%;
+  height: 90px;
+  background-color: inherit;
+  font-size: 3rem;
+  border: 0;
+  color: white;
+  margin-left: 3rem;
+}
+
+.searchBanner .searchBar selected {
+  border: 1 red;
+}
+
+.searchBanner .FaSearch {
+  margin-left: 5%;
+}
