@@ -1,21 +1,32 @@
 .movieList {
-    border: solid 1px rgb(202, 199, 199);
-    border-left: none;
-    border-top: none;
-    padding: 20px;
-    background-color:rgb(237, 237, 237)
+  border: solid 1px rgb(202, 199, 199);
+  border-left: none;
+  border-top: none;
+  padding: 30px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
 }
 .movieList:hover {
-    background-color:rgb(217, 214, 214)
+  background-color: rgb(217, 214, 214);
 }
 .sideBar {
-    width: 30%;
+  width: 30%;
+}
+
+.description {
+  flex: 1 1 auto;
+}
+.cardPoster {
+  margin-right: 20px;
+  align-self: flex-start;
+  border-radius: 5px;
 }
 .scrollBar {
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}

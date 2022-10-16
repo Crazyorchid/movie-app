@@ -1,8 +1,16 @@
-.searchBox{
-    height:100%;
-    font-size:40px;
-    background-color:rgb(158, 155, 155);
-    border: none;
-    color:white;
-    margin-left: 20px;
+.searchBox {
+  height: 100%;
+  font-size: 25px;
+  background-color: rgb(122, 121, 121);
+  border: none;
+  color: white;
+  margin-left: 35px;
+}
+
+.searchBox:focus {
+  outline: none;
+  background-color: rgb(122, 121, 121);
+}
+.searchBox::placeholder {
+  color: white;
 }

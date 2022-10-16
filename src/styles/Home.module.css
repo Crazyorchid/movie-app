@@ -1,23 +1,30 @@
-.sideBar{
-	width:500px;
-	margin-right:50px;
+.sideBar {
+  width: 700px;
+  margin-right: 50px;
   overflow: hidden;
   max-height: 90vh;
 }
-.contentContainer{
-	background-color: rgb(237, 237, 237);
-	display: flex;
-	justify-content:space-between;
-	
-}
-.header{
-	display: flex;
-	height: 10vh;
-	color: #ffffff;
-	background-color: rgb(158, 155, 155);
-	margin: 0;
+
+.sideBarScroll::-webkit-scrollbar {
+  width: 1em;
 }
 
-.mainContent{
-	width: 1500px;
+.sideBarScroll::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+.contentContainer {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+}
+.header {
+  display: flex;
+  height: 10vh;
+  color: #ffffff;
+  background-color: rgb(122, 121, 121);
+  margin: 0;
+}
+
+.mainContent {
+  width: 1500px;
 }

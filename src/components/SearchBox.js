@@ -5,7 +5,7 @@ import styles from '../styles/SearchBox.module.css';
 const SearchBox = (props) => {
   return (
     <div className={styles.searchBox}>
-      <FaSearch size={40} />
+      <FaSearch size={20} />
       <input
         className={styles.searchBox}
         value={props.value}
