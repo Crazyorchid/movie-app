@@ -1,6 +1,8 @@
 
 This is a movie page made by Max Zhuge for this coding assignment.
-## Getting Started
+
+
+## Getting Started (Please clone the master branch to run it on local)
 
 ### node version 12.22.3
 
