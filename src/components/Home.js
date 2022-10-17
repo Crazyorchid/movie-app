@@ -1,106 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDebounceFn } from 'ahooks';
 import styles from '../styles/Home.module.css';
 import MovieList from './MovieList';
-import MovieListHeading from './MovieHeading';
 import SearchBox from './SearchBox';
-import AddtoWatchlist from './AddtoWatchlist';
 import MovieContent from './MovieContent';
+import RangeSlider from './RangeSlider';
+import RadioGroup from './RadioGroup';
+import { useMoviesApi } from '../hooks/useMovie.api';
 
 const Home = () => {
-  const [movies, setMovies] = useState([]);
-  const [result, setResult] = useState([]);
-  const [favourites, setFavourites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [page, setPage] = useState(1);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [type, setType] = useState(null);
+  const [year, setYear] = useState([1980, 2009]);
+  const [debouncedYear, setDebouncedYear] = useState();
 
-  const getMovieRequest = async (searchValue, page) => {
-    const url = `https://www.omdbapi.com/?s=${searchValue}&page=${page}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
-    const response = await fetch(url);
-    const responseJson = await response.json();
+  const { run: onSearchWithDebounce } = useDebounceFn(
+    (e) => {
+      setSearchValue(e);
+      resetSearch();
+    },
+    { wait: 500 }
+  );
 
-    if (responseJson.Search) {
-      setMovies(responseJson.Search);
-      setResult(responseJson);
-    }
+  const { run: onYearChangeWithDebounce } = useDebounceFn(
+    () => {
+      setDebouncedYear(year);
+      resetSearch();
+    },
+    { wait: 500 }
+  );
+  const selectType = (e) => {
+    setType(e.target.value);
+    resetSearch();
+  };
+
+  const {
+    page,
+    movies,
+    totalResultsCount,
+    lastElementRef,
+    fetchMovies,
+    resetSearch,
+  } = useMoviesApi(year[0], year[1]);
+
+  const yearChange = (event, newValue) => {
+    setYear(newValue);
+    onYearChangeWithDebounce();
   };
 
   useEffect(() => {
-    getMovieRequest(searchValue);
-  }, [searchValue]);
-
-  useEffect(() => {
-    const movieFavourites = JSON.parse(
-      localStorage.getItem('react-movie-app-favourites')
-    );
-
-    if (movieFavourites) {
-      setFavourites(movieFavourites);
-    }
-  }, []);
-
-  const saveToLocalStorage = (items) => {
-    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-  };
-
-  const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-  };
-
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.imdbID !== movie.imdbID
-    );
-
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-  };
-  const handleScrollEvent = (e) => {
-    let endList =
-      e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight < 50;
-    if (endList) {
-      let newPage = page + 1;
-      setPage(newPage);
-      getMovieRequest(searchValue);
-      console.log(newPage);
-    }
-  };
+    fetchMovies(searchValue, page, type);
+  }, [searchValue, page, type, debouncedYear]);
 
   return (
     <>
       <div className={styles.header}>
-        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+        <SearchBox
+          searchValue={searchValue}
+          setSearchValue={onSearchWithDebounce}
+        />
+        <div className={styles.filter}>
+          <RangeSlider onChange={yearChange} value={year} />
+          <RadioGroup onChange={selectType} />
+        </div>
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.sideBar}>
           <div
             className={styles.sideBarScroll}
-            style={{ overflowY: 'scroll', height: '100%' }}
-            onScroll={handleScrollEvent}>
+            style={{ overflowY: 'scroll', height: '100%' }}>
             <br />
-            <span style={{ padding: '30px' }}>
-              {result.totalResults} RESULTS
-            </span>
+            <span style={{ padding: '30px' }}>{totalResultsCount} RESULTS</span>
             <MovieList
               movies={movies}
+              selectedMovie={selectedMovie}
               setSelectedMovie={setSelectedMovie}
-              handleFavouritesClick={addFavouriteMovie}
-              favouriteComponent={AddtoWatchlist}
+              lastElementRef={lastElementRef}
             />
           </div>
-          <div className='row d-flex align-items-center mt-4 mb-4'>
-            <MovieListHeading heading='Favourites' />
-          </div>
-          {/* <div className='row'>
-            <MovieList
-              movies={favourites}
-              handleFavouritesClick={removeFavouriteMovie}
-              favouriteComponent={RemoveFromWatchlist}
-            />
-          </div> */}
         </div>
         <div className={styles.mainContent}>
           {selectedMovie && <MovieContent movieId={selectedMovie} />}
