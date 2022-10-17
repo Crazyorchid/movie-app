@@ -35,7 +35,6 @@ export function useMoviesApi(startYear, endYear) {
       if (movies.length === 0) {
         setTotalResultsCount(0);
       }
-      console.log(isLastPageReached);
     };
     finalData.length === 0
       ? rest()
@@ -53,7 +52,6 @@ export function useMoviesApi(startYear, endYear) {
     lastElementObserver.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setPage((prevPage) => prevPage + 1);
-        //console.log(page);
       }
     });
     if (node) lastElementObserver.current.observe(node);
@@ -63,10 +61,8 @@ export function useMoviesApi(startYear, endYear) {
     setIsLoadingMovies(true);
     const url = `https://www.omdbapi.com/?s=${searchValue}&page=${page}&type=${type}&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
 
-    console.log({ isLastPageReached });
     if (!isLastPageReached) {
       const response = await fetch(url);
-      console.log('trigger fetch');
       const responseJson = await response.json();
 
       if (responseJson.Search) {

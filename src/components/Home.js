@@ -13,7 +13,7 @@ const Home = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [type, setType] = useState(null);
   const [year, setYear] = useState([1980, 2009]);
-  const [debouncedYear, setDebouncedYear] = useState();
+  const [debouncedYear, setDebouncedYear] = useState([1980, 2009]);
 
   const { run: onSearchWithDebounce } = useDebounceFn(
     (e) => {
@@ -42,7 +42,7 @@ const Home = () => {
     lastElementRef,
     fetchMovies,
     resetSearch,
-  } = useMoviesApi(year[0], year[1]);
+  } = useMoviesApi(debouncedYear[0], debouncedYear[1]);
 
   const yearChange = (event, newValue) => {
     setYear(newValue);
