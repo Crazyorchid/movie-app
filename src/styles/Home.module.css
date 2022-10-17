@@ -2,7 +2,7 @@
   width: 700px;
   margin-right: 50px;
   overflow: hidden;
-  max-height: 90vh;
+  max-height: 85vh;
 }
 
 .sideBarScroll::-webkit-scrollbar {
@@ -13,16 +13,23 @@
   background-color: darkgrey;
 }
 .contentContainer {
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
 }
 .header {
   display: flex;
-  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
   color: #ffffff;
   background-color: rgb(122, 121, 121);
   margin: 0;
+}
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px 0 50px;
 }
 
 .mainContent {

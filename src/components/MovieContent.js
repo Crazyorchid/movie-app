@@ -1,30 +1,17 @@
-import { style } from '@mui/system';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/MovieContent.module.css';
+import { useMovieApi } from '../hooks/useMovie.api';
 const MovieContent = (props) => {
-  // const contents = props.content;
-  // const ratings = props.content.Ratings;
-  const [movieDetail, setMovieDetail] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const selectMovie = async (movieId) => {
-    setLoading(true);
-    const url = `https://www.omdbapi.com/?i=${movieId}&plot=full&apikey=${process.env.NEXT_PUBLIC_OMDb_API_KEY}`;
-    const response = await fetch(url);
-    const responseJson = await response.json();
-    setLoading(false);
-
-    if (responseJson) {
-      setMovieDetail(responseJson);
-    }
-  };
+  const { isLoadingMovie, movie, fetchMovie } = useMovieApi();
 
   useEffect(() => {
-    selectMovie(props.movieId);
+    fetchMovie(props.movieId);
   }, [props.movieId]);
-  if (loading) {
+
+  if (isLoadingMovie) {
     return <h1>Loading...</h1>;
   }
-  if (movieDetail === null) {
+  if (movie === null) {
     return <></>;
   }
   return (
@@ -33,10 +20,10 @@ const MovieContent = (props) => {
         <div className={styles.generalContent}>
           <img
             className={styles.poster}
-            src={movieDetail.Poster}
-            alt={movieDetail.Title}></img>
+            src={movie.Poster}
+            alt={movie.Title}></img>
           <div className={styles.description}>
-            <h1>{movieDetail.Title}</h1>
+            <h1>{movie.Title}</h1>
             <span
               style={{
                 border: '1px solid black',
@@ -44,23 +31,24 @@ const MovieContent = (props) => {
                 padding: '5px',
                 marginRight: '10px',
               }}>
-              {movieDetail.Rated}
+              {movie.Rated}
             </span>
-            <span>{movieDetail.Year}&nbsp;&#x2022;&nbsp;</span>
-            <span>{movieDetail.Genre}&nbsp;&#x2022;&nbsp;</span>
-            <span>{movieDetail.Runtime}</span>
+            <span>{movie.Year}&nbsp;&#x2022;&nbsp;</span>
+            <span>{movie.Genre}&nbsp;&#x2022;&nbsp;</span>
+            <span>{movie.Runtime}</span>
             <br />
-            <span style={{ fontSize: '1.5rem' }}>{movieDetail.Actors}</span>
+            <span style={{ fontSize: '1.5rem' }}>{movie.Actors}</span>
             <br />
           </div>
         </div>
         <hr />
-        <p style={{ fontSize: '1rem', marginBottom: '0' }}>
-          {movieDetail.Plot}
+        <p
+          style={{ fontSize: '1rem', marginBottom: '0', paddingRight: '2rem' }}>
+          {movie.Plot}
         </p>
         <hr />
         <div className={styles.ratings}>
-          {movieDetail.Ratings.map((rat, index) => (
+          {movie.Ratings.map((rat, index) => (
             // eslint-disable-next-line react/jsx-key
             <>
               <div className={styles.singleRating}>
