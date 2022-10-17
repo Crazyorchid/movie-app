@@ -33,7 +33,7 @@ export default function RangeSlider(props) {
           YEAR
         </Typography>
         <Slider
-          className={styles.slider}
+          style={{ color: 'white', marginRight: '30px' }}
           marks={marks}
           min={1970}
           max={2022}
