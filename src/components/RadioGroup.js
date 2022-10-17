@@ -10,16 +10,14 @@ import styles from '../styles/RadioGroup.module.css';
 export default function RowRadioButtonsGroup(props) {
   return (
     <FormControl className={styles.radioGroup}>
-      <FormLabel style={{ color: 'white', marginBottom: '30px' }}>
-        TYPE
-      </FormLabel>
+      <FormLabel style={{ color: 'white' }}>TYPE</FormLabel>
       <Box>
         <RadioGroup
           row
           aria-labelledby='radio-buttons-group'
-          name='row-radio-buttons-group'
+          name='radio-buttons'
           sx={{
-            '&, &.input': {
+            '& .Mui-checked': {
               color: 'white',
             },
           }}>
