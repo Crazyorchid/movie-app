@@ -67,11 +67,11 @@ const Home = () => {
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.sideBar}>
+          <span style={{ padding: '30px' }}>{totalResultsCount} RESULTS</span>
           <div
             className={styles.sideBarScroll}
             style={{ overflowY: 'scroll', height: '100%' }}>
             <br />
-            <span style={{ padding: '30px' }}>{totalResultsCount} RESULTS</span>
             <MovieList
               movies={movies}
               selectedMovie={selectedMovie}
