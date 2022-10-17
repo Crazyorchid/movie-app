@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDebounceFn } from 'ahooks';
 import styles from '../styles/Home.module.css';
 import MovieList from './MovieList';

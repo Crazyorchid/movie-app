@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import styles from '../styles/MovieList.module.css';
 
 const MovieList = (props) => {
