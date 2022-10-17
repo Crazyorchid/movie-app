@@ -1,6 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This is a movie page made by Max Zhuge for this coding assignment.
 ## Getting Started
+
+### node version 12.22.3
 
 First, run the development server:
 
@@ -9,26 +11,15 @@ npm run dev
 # or
 yarn dev
 ```
+The site can be viewed at: [http://localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run it locally, for secure consideration. Even though the api key for this site is easy to get. It is not included in the repo, so when running it locally, please create .env file and add the api key to the file in the fomat below:
+```
+NEXT_PUBLIC_OMDb_API_KEY=YOUR_API_KEY
+```
+You can get the api key easily from:
+[OMDBAPI](https://www.omdbapi.com)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This site has also been automatically deployed on vercel with some simple checks on: 
+[Demo](https://movie-page-mauve.vercel.app)
