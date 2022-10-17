@@ -21,5 +21,6 @@ You can get the api key easily from:
 [OMDBAPI](https://www.omdbapi.com)
 
 
-This site has also been automatically deployed on vercel with some simple checks on: 
+### This site has also been automatically deployed on vercel with some simple checks on (Slightly different from the development environment. I think it's caused by the node version difference): 
+
 [Demo](https://movie-page-mauve.vercel.app)
